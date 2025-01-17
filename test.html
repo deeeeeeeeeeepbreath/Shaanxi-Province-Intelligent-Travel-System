@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧旅游系统</title>
+  <link rel="stylesheet" href="teststyle.css"/>
+
+</head>
+<body>
+  <!-- 主页面 -->
+  <div id="home-page" class="page">
+    <div id="background-container"></div>
+    <div id="content">
+      <h1>欢迎来到智慧旅游系统！</h1>
+      <button id="enter-button">进入系统</button>
+    </div>
+  </div>
+
+  <!-- 聊天页面 -->
+  <div id="chat-page" class="page hidden">
+    <div id="chat-container">
+      <div id="chat-section">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="请输入您的问题...">
+        <button id="send-button">发送</button>
+      </div>
+      <div id="map-section">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('enter-button').addEventListener('click', function() {
+      document.getElementById('home-page').classList.add('hidden');
+      document.getElementById('chat-page').classList.remove('hidden');
+
+      // 初始化百度地图
+      const map = new BMapGL.Map("map"); // 创建地图实例
+      const point = new BMapGL.Point(116.404, 39.915); // 设置中心点坐标
+      map.centerAndZoom(point, 15); // 初始化地图，设置中心点和缩放级别
+      map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+      // 添加比例尺控件
+      const scaleCtrl = new BMapGL.ScaleControl();
+      map.addControl(scaleCtrl);
+
+      // 添加缩放控件
+      const zoomCtrl = new BMapGL.ZoomControl();
+      map.addControl(zoomCtrl);
+
+      // 添加标记点
+      const marker = new BMapGL.Marker(point);
+      map.addOverlay(marker);
+      marker.addEventListener('click', () => {
+        alert('展示天安门广场的三维实景模型');
+      });
+
+      // 添加地图类型控件
+      const mapTypeCtrl = new BMapGL.MapTypeControl();
+      map.addControl(mapTypeCtrl);
+
+      // 添加指南针控件
+      const navigationCtrl = new BMapGL.NavigationControl();
+      map.addControl(navigationCtrl);
+    });
+
+    document.getElementById('send-button').addEventListener('click', function() {
+      const input = document.getElementById('chat-input').value;
+      const chatMessages = document.getElementById('chat-messages');
+      if (input) {
+        chatMessages.innerHTML += `<p>用户: ${input}</p>`;
+        document.getElementById('chat-input').value = '';
+      }
+    });
+  </script>
+
+  <script src="https://api.map.baidu.com/api?v=3.0&type=webgl&ak=Jhu90JlmyAyUzP20Lqmbu6V2neznKCJl"></script>
+</body>
+</html>
