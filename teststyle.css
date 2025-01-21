@@ -47,6 +47,10 @@ body, html {
   color: white;
 }
 
+#enter-button:hover{
+  background-color: #1e3f1f;
+}
+
 #chat-page {
   display: flex;
   height: 100%;
@@ -76,6 +80,7 @@ body, html {
 #chat-input {
   padding: 10px;
   flex-grow: 1;
+
 }
 
 #send-button {
