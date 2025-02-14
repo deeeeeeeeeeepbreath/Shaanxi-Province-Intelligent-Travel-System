@@ -1,8 +1,8 @@
 function map_start() {
   // 初始化百度地图
   const map = new BMapGL.Map("map"); // 创建地图实例
-  const point = new BMapGL.Point(108.95, 34.25); // 设置中心点坐标
-  map.centerAndZoom(point, 8); // 初始化地图，设置中心点和缩放级别
+  const point = new BMapGL.Point(109.28, 34.25); // 设置中心点坐标
+  map.centerAndZoom(point, 9); // 初始化地图，设置中心点和缩放级别
   map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
 
   // 添加比例尺控件
@@ -14,7 +14,7 @@ function map_start() {
   map.addControl(zoomCtrl);
 
   // 添加标记点
-  const marker_xian = new BMapGL.Marker(point);
+  const marker_xian = new BMapGL.Marker(new BMapGL.Point(108.95, 34.25));
   map.addOverlay(marker_xian);
   marker_xian.addEventListener('click', () => {
     alert('西安市');
@@ -23,6 +23,26 @@ function map_start() {
   map.addOverlay(marker_GQL);
   marker_GQL.addEventListener('click', () => {
     alert('鹳雀楼');
+  });
+  const marker_HGG = new BMapGL.Marker(new BMapGL.Point(110.924, 34.633));
+  map.addOverlay(marker_HGG);
+  marker_HGG.addEventListener('click', () => {
+    alert('函谷关');
+  });
+  const marker_PJS = new BMapGL.Marker(new BMapGL.Point(110.34, 34.85));
+  map.addOverlay(marker_PJS);
+  marker_PJS.addEventListener('click', () => {
+    alert('普救寺');
+  });
+  const marker_HS = new BMapGL.Marker(new BMapGL.Point(110, 34.5));
+  map.addOverlay(marker_HS);  
+  marker_HS.addEventListener('click', () => {
+    alert('华山');
+  });
+  const marker_CHS = new BMapGL.Marker(new BMapGL.Point(109.01, 33.97));
+  map.addOverlay(marker_CHS);  
+  marker_CHS.addEventListener('click', () => {
+    alert('翠华山');
   });
 
   // 添加地图类型控件
@@ -46,5 +66,6 @@ document.getElementById('send-button').addEventListener('click', function () {
   if (input) {
     chatMessages.innerHTML += `<p>用户: ${input}</p>`;
     document.getElementById('chat-input').value = '';
+    chatMessages.innerHTML += `<p>暂未开放</p>`;
   }
 });
