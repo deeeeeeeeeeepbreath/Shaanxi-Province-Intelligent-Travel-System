@@ -14,6 +14,7 @@ function map_start() {
   map.addControl(zoomCtrl);
 
   // 添加标记点
+  // 点击标记点弹出三维模型界面
   const marker_xian = new BMapGL.Marker(new BMapGL.Point(108.95, 34.25));
   map.addOverlay(marker_xian);
   marker_xian.addEventListener('click', () => {
