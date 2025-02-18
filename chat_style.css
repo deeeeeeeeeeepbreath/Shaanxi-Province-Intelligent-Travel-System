@@ -26,21 +26,25 @@ html {
 }
 
 #chat-messages {
-  flex: 1;
+  flex: 9;
   overflow-y: auto;
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
 }
 
-#chat-input {
-  padding: 10px;
-  flex-grow: 1;
+#send{
+  flex-wrap: wrap;
+}
 
+#chat-input {
+  padding: 1%;
+  width: 75%;
 }
 
 #send-button {
-  padding: 10px;
+  padding: 1%;
+  width: 20%;
 }
 
 #map-section {
