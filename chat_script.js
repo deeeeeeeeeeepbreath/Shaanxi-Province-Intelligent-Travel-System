@@ -61,11 +61,11 @@ document.getElementById('show-map').addEventListener('click',function(){
 document.getElementById('show-map').addEventListener('click',map_start);
 
 document.getElementById('send-button').addEventListener('click', function () {
-  const input = document.getElementById('chat-input').value;
+  const input = document.getElementById('chat-input').value;    //把这个input传给GPT
   const chatMessages = document.getElementById('chat-messages');
   if (input) {
     chatMessages.innerHTML += `<p>用户: ${input}</p>`;
     document.getElementById('chat-input').value = '';
-    chatMessages.innerHTML += `<p>暂未开放</p>`;
+    chatMessages.innerHTML += `<p>暂未开放</p>`;                //这里改为GPT输出结果
   }
 });
