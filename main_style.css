@@ -6,6 +6,7 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
+
 .page {
   width: 100%;
   height: 100%;
@@ -14,6 +15,111 @@ body, html {
 #home-page {
   position: relative;
   overflow: hidden;
+}
+/*  顶栏样式  */
+header {
+  position: fixed; /*  固定在顶部  */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10; /*  确保顶栏在最上方  */
+}
+
+.header-left .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none; /*  去除logo链接下划线 */
+}
+
+.header-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.header-nav li {
+  margin: 0 15px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #eee;
+  font-size: 16px;
+  opacity: 0.8; /*  初始透明度  */
+  transition: opacity 0.3s ease; /*  平滑过渡效果  */
+}
+
+.header-nav a:hover {
+  opacity: 1; /*  鼠标悬停时更清晰  */
+}
+
+.header-right button {
+  background-color: rgba(255, 255, 255, 0.1); /*  半透明白色背景  */
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-right: 60px;
+}
+
+.header-right button:hover {
+  background-color: rgba(255, 255, 255, 0.3); /*  悬停时加深背景  */
+}
+
+
+/*  主内容区域样式  */
+#home-page {
+  position: relative; /*  相对定位，方便内容绝对定位  */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#content {
+  max-width: 800px;
+  padding: 0 20px; /*  左右内边距，防止内容贴边
+    */
+    color: #ddd;
+}
+
+#content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-weight: bold; /* 加粗标题 */
+}
+
+#content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #ddd; /*  稍微淡一点的文字颜色  */
+}
+
+
+#content button {
+  background-color: #4285F4; 
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+#content button:hover {
+  background-color: #357AE8; 
 }
 
 /* 视频背景 */
@@ -51,35 +157,13 @@ body, html {
         height: 100%;
     }
 }
-
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /*  半透明黑色蒙版  */
+    z-index: -1; /*  置于视频上方，内容下方  */
 }
 
-#content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding-top: 20%;
-  color: white;
-}
-
-#enter-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #4CAF50;
-  color: white;
-}
-
-#enter-button:hover{
-  background-color: #1e3f1f;
-}
